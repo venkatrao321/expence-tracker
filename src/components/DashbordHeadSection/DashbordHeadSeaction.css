@@ -1,0 +1,10 @@
+.DashbordHead{
+    background: #626262;
+    margin: 0 20px;
+    display: flex;
+    height: 294px;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}

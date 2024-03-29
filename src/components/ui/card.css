@@ -1,0 +1,19 @@
+.card-continer{
+    width: 355.41px;
+    height: 181px;
+    border-radius: 15px ;
+    background: #9B9B9B;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.red{
+    background: linear-gradient(90deg, #FF9595 0%, #FF4747 80%, #FF3838 100%);
+}
+.green{
+    background: linear-gradient(90deg, #B5DC52 0%, #89E148 100%);
+
+}
