@@ -1,4 +1,4 @@
-import Card from "../../ui/Cards";
+import Card from "../ui/Cards";
 
 const Expenses = ({expence}) => {
     return ( 

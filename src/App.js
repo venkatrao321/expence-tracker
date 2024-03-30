@@ -1,10 +1,10 @@
 import './App.css';
-import Body from './components/Body/Body';
+import DashbordHead from './components/DashbordHeadSection/DashbordHeadSection';
 
 function App() {
   return (
     <div className="App">
-      <Body></Body>
+  <DashbordHead></DashbordHead>
     </div>
   );
 }
