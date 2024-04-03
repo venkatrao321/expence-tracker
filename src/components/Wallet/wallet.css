@@ -1,6 +1,5 @@
 .walletModel {
-  width: 538px;
-  height: 335px;
-  border-radius: 15px 0px 0px 0px;
+  padding: 30px;
+  border-radius: 15px;
   background: #EFEFEFD9;
 }

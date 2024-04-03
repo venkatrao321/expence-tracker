@@ -7,14 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   width: 100%;
-  background: #3B3B3B;
+  background: #3B3B3B!important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-.btn{
+/* .btn{
     border-radius: 15px;
     width: 167.65px;
     height: 38px;
@@ -22,4 +18,12 @@ code {
     color: white;
     font-weight:700;
     cursor: pointer;
+} */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
