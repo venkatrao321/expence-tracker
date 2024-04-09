@@ -10,7 +10,7 @@ function DashbordHead() {
         <h2 className='app-header'>Expense Tracker</h2>
         <div className="DashbordHead" >
             <Wallet walletBalance={balance} setwalletBalance={setBalance}></Wallet>
-            <Expenses expence={expence} setExpence={setExpence}></Expenses>
+            <Expenses expence={expence} setwalletBalance={setBalance} setExpence={setExpence}></Expenses>
         </div>
     </> 
     );
