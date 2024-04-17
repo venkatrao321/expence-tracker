@@ -2,7 +2,6 @@
 import './card.css'
 function Card({buttonText,cardText,walletMoney,btncolor,SetOpenModel}) {
     const btnfunction=function(params) {
-        if(buttonText==='+ Add Income')
         SetOpenModel(true)
         console.log(params)
     }
