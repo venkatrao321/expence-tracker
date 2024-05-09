@@ -69,6 +69,7 @@ const Model = ({type,openModel,SetOpenModel,setwalletBalance,walletBalance,Categ
                       name="title"
                       value={inputs.title || ""}
                       onChange={handleChange}
+                      required
                     ></input>
                   </div>
                   <div className="col-6">
@@ -79,6 +80,7 @@ const Model = ({type,openModel,SetOpenModel,setwalletBalance,walletBalance,Categ
                       name="price"
                       value={inputs.price || ""}
                       onChange={handleChange}
+                      required
                     ></input>
                   </div>
                 </div>
@@ -111,6 +113,7 @@ const Model = ({type,openModel,SetOpenModel,setwalletBalance,walletBalance,Categ
                       placeholder="Select Date-time"
                       onChange={handleChange}
                       value={inputs.daytime || ""}
+                      required
                     />
                   </div>
                 </div>
