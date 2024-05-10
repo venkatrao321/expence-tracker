@@ -2,7 +2,7 @@ import React, { useCallback, useState,useContext } from "react";
 import { PieChart, Pie, Cell } from "recharts";
 import {MyContext} from "../Utils/ExpenceCategoryContex.jsx"
 
-
+let data=[]
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
@@ -34,21 +34,25 @@ const renderCustomizedLabel = ({
 };
 export default function Charts() {
   const {expenceCategory}=useContext(MyContext);
-console.log(expenceCategory);
+  data=(expenceCategory?.map((value)=>{
+    
+    return{name:value.category,value:Number(value.price)}
+  }))
+  console.log(data);
   return (
     <PieChart width={400} height={400}>
       <Pie
-        data={expenceCategory}
+        data={data}
         cx={200}
         cy={200}
         labelLine={false}
         label={renderCustomizedLabel}
         outerRadius={80}
         fill="#8884d8"
-        dataKey="price"
+        dataKey="value"
       >
-        {expenceCategory.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+        {data.map((entry, index) => (
+          <Cell key={`cell-${entry.category}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>
     </PieChart>

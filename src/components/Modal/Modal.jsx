@@ -2,7 +2,7 @@ import ReactModal from 'react-modal';
 import { useState,useContext } from 'react';
 import {MyContext} from "../Utils/ExpenceCategoryContex.jsx"
 
-const Model = ({type,openModel,SetOpenModel,setwalletBalance,walletBalance,Category}) => {
+const Model = ({type,openModel,SetOpenModel,setwalletBalance,walletBalance,expence,setExpence,Category}) => {
   const [inputs, setInputs] = useState({});
  const {expenceCategory,setExpenceCategory}=useContext(MyContext);
   const handleChange = (event) => {
@@ -19,6 +19,8 @@ const Model = ({type,openModel,SetOpenModel,setwalletBalance,walletBalance,Categ
   const onSubmitexpence=(s)=>{
     s.preventDefault()
     setExpenceCategory([...expenceCategory,inputs])
+    console.log(inputs)
+    setExpence(inputs)
   }
   const OnClickCloseModal=()=>{
     SetOpenModel(false);

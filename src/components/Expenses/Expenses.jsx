@@ -17,8 +17,8 @@ const Expenses = ({ expence, setExpence, setwalletBalance,Category }) => {
         type="expenceModal"
         openModel={openExpenceModel}
         SetOpenModel={SetOpenExpenceModel}
-        walletBalance={expence}
-        setwalletBalance={setExpence}
+        expence={expence}
+        setExpence={setExpence}
         Category={Category}
       ></Model>
     </>
