@@ -1,6 +1,6 @@
-import React, { useCallback, useState,useContext } from "react";
+import React, { useContext } from "react";
 import { PieChart, Pie, Cell } from "recharts";
-import {MyContext} from "../Utils/ExpenceCategoryContex.jsx"
+import {MyContext} from "../../Utils/ExpenceCategoryContex.jsx"
 
 let data=[]
 
@@ -35,7 +35,6 @@ const renderCustomizedLabel = ({
 export default function Charts() {
   const {expenceCategory}=useContext(MyContext);
   data=(expenceCategory?.map((value)=>{
-    
     return{name:value.category,value:Number(value.price)}
   }))
   console.log(data);

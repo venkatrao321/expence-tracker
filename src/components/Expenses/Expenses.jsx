@@ -1,9 +1,10 @@
 import Card from "../ui/Cards";
 import Model from "../Modal/Modal";
-import { useState } from "react";
-const Expenses = ({ expence, setExpence, setwalletBalance,Category }) => {
+import { useState,useContext } from "react";
+import { ExpenceContext } from "../../Utils/ExpencesContext";
+const Expenses = ({ Category }) => {
   const [openExpenceModel, SetOpenExpenceModel] = useState(false);
-
+  const {expence}=useContext(ExpenceContext)
   return (
     <>
       <Card
@@ -17,8 +18,6 @@ const Expenses = ({ expence, setExpence, setwalletBalance,Category }) => {
         type="expenceModal"
         openModel={openExpenceModel}
         SetOpenModel={SetOpenExpenceModel}
-        expence={expence}
-        setExpence={setExpence}
         Category={Category}
       ></Model>
     </>

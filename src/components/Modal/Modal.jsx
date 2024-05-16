@@ -1,26 +1,35 @@
 import ReactModal from 'react-modal';
 import { useState,useContext } from 'react';
-import {MyContext} from "../Utils/ExpenceCategoryContex.jsx"
-
-const Model = ({type,openModel,SetOpenModel,setwalletBalance,walletBalance,expence,setExpence,Category}) => {
+import {MyContext} from "../../Utils/ExpenceCategoryContex.jsx"
+import { walletContext } from '../../Utils/WalletContex.jsx';
+import { ExpenceContext } from '../../Utils/ExpencesContext.jsx';
+const Model = ({type,openModel,SetOpenModel,Category}) => {
   const [inputs, setInputs] = useState({});
  const {expenceCategory,setExpenceCategory}=useContext(MyContext);
+ const {walletBalance,setWalletBalance}=useContext(walletContext);
+ const {expence,setExpence}=useContext(ExpenceContext)
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setInputs(values => ({...values, [name]: value}))
+    setInputs(values => ({...values, [name]: value}));
   }
   const onSubmitAddBal=(s)=>{
     s.preventDefault()
     if(inputs.addBalance>0){
-      setwalletBalance(Number(inputs.addBalance)+walletBalance);
+      setWalletBalance(Number(inputs.addBalance)+walletBalance);
     }
   }
   const onSubmitexpence=(s)=>{
-    s.preventDefault()
+    s.preventDefault();
+    if(walletBalance>0&&inputs.price<walletBalance){
     setExpenceCategory([...expenceCategory,inputs])
-    console.log(inputs)
-    setExpence(inputs)
+    if(inputs.price>0){
+      setExpence(Number(inputs?.price)+expence)
+      setWalletBalance(walletBalance-Number(inputs?.price));
+    }}
+    else{
+      alert("Wallet balance exceeded you had exceeded the limit")
+    }
   }
   const OnClickCloseModal=()=>{
     SetOpenModel(false);

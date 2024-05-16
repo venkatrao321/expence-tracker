@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import Card from "../ui/Cards";
 import "./wallet.css";
 import Model from "../Modal/Modal";
-function Wallet({ walletBalance, setwalletBalance }) {
-  const [openBalModel, SetOpenBalModel] = useState(false);
+import { walletContext } from "../../Utils/WalletContex";
 
+function Wallet() {
+  const [openBalModel, SetOpenBalModel] = useState(false);
+  const {walletBalance}=useContext(walletContext);
   return (
     <>
       <Card
@@ -18,8 +20,6 @@ function Wallet({ walletBalance, setwalletBalance }) {
         type="walletModal"
         openModel={openBalModel}
         SetOpenModel={SetOpenBalModel}
-        walletBalance={walletBalance}
-        setwalletBalance={setwalletBalance}
       ></Model>
     </>
   );

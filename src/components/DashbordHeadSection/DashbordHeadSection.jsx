@@ -1,33 +1,32 @@
-import "./DashbordHeadSeaction.css"
-import Expenses from '../Expenses/Expenses'
+import "./DashbordHeadSeaction.css";
+import Expenses from "../Expenses/Expenses";
 import Wallet from "../Wallet/Wallet";
-import { useState,createContext } from 'react';
-import { MyProvider } from "../Utils/ExpenceCategoryContex";
+import {createContext } from "react";
+import { MyProvider } from "../../Utils/ExpenceCategoryContex";
+import { WalletBalProvider } from "../../Utils/WalletContex";
 import Charts from "../Charts/Charts";
-export const categoryContext=createContext();
+import { ExpenceBalProvider } from "../../Utils/ExpencesContext";
+export const categoryContext = createContext();
 function DashbordHead() {
-    const [balance,setBalance]=useState(5000)
-    const [expence,setExpence]=useState(0)
-    const Category=[
-        'FOOD',
-        'Entertainment',
-        'Travel',
-        'Shopping',
-        'Others'
-    ]
-
-    return ( 
+  const Category = ["FOOD", "Entertainment", "Travel", "Shopping", "Others"];
+  return (
     <>
+      <WalletBalProvider>
+        <ExpenceBalProvider>
         <MyProvider>
-        <h2 className='app-header'>Expense Tracker</h2>
-        <div className="DashbordHead" >
-            <Wallet walletBalance={balance} setwalletBalance={setBalance}></Wallet>
-            <Expenses expence={expence} Category={Category} setwalletBalance={setBalance} setExpence={setExpence}></Expenses>
+          <h2 className="app-header">Expense Tracker</h2>
+          <div className="DashbordHead">
+            <Wallet></Wallet>
+            <Expenses
+              Category={Category}
+            ></Expenses>
             <Charts></Charts>
-        </div>
+          </div>
         </MyProvider>
-    </> 
-    );
+        </ExpenceBalProvider>
+      </WalletBalProvider>
+    </>
+  );
 }
 
-export default DashbordHead ;
+export default DashbordHead;
