@@ -4,7 +4,7 @@ import {MyContext} from "../../Utils/ExpenceCategoryContex.jsx"
 
 let data=[]
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -32,7 +32,7 @@ const renderCustomizedLabel = ({
     </text>
   );
 };
-export default function Charts() {
+export default function Charts({category}) {
   const {expenceCategory}=useContext(MyContext);
   data=(expenceCategory?.map((value)=>{
     return{name:value.category,value:Number(value.price)}
