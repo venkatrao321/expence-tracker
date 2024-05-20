@@ -20,7 +20,7 @@ function DashbordHead() {
             <Expenses
               Category={Category}
             ></Expenses>
-            <Charts Category={Category}></Charts>
+            <Charts></Charts>
           </div>
         </MyProvider>
         </ExpenceBalProvider>

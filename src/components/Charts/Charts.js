@@ -1,11 +1,21 @@
 import React, { useContext } from "react";
-import { PieChart, Pie, Cell } from "recharts";
+import { PieChart, Pie, Cell,LabelList} from "recharts";
 import {MyContext} from "../../Utils/ExpenceCategoryContex.jsx"
 
-let data=[]
 
-
-
+function filterAndSum(arr) {
+  const result = {};
+  
+  arr.forEach(item => {
+      if (result[item.category]) {
+          result[item.category] += Number(item.price);
+      } else {
+          result[item.category] = Number(item.price);
+      }
+  });
+  
+  return Object.keys(result).map(category => ({ category: category, price: result[category] }));
+}
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
   cx,
@@ -25,6 +35,7 @@ const renderCustomizedLabel = ({
       x={x}
       y={y}
       fill="white"
+      fontSize={'10px'}
       textAnchor={x > cx ? "start" : "end"}
       dominantBaseline="central"
     >
@@ -32,11 +43,9 @@ const renderCustomizedLabel = ({
     </text>
   );
 };
-export default function Charts({category}) {
+export default function Charts() {
   const {expenceCategory}=useContext(MyContext);
-  data=(expenceCategory?.map((value)=>{
-    return{name:value.category,value:Number(value.price)}
-  }))
+  let data=filterAndSum(expenceCategory)
   console.log(data);
   return (
     <PieChart width={400} height={400}>
@@ -48,10 +57,16 @@ export default function Charts({category}) {
         label={renderCustomizedLabel}
         outerRadius={80}
         fill="#8884d8"
-        dataKey="value"
+        dataKey="price"
       >
         {data.map((entry, index) => (
-          <Cell key={`cell-${entry.category}`} fill={COLORS[index % COLORS.length]} />
+          (
+            <>
+          <Cell key={`cell-${entry.category}`} />
+          <LabelList dataKey="category" position="top" />
+
+            </>
+          )
         ))}
       </Pie>
     </PieChart>

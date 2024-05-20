@@ -89,7 +89,7 @@ const Model = ({type,openModel,SetOpenModel,Category}) => {
                       className="form-control"
                       placeholder="Price"
                       name="price"
-                      value={inputs.price || ""}
+                      value={Number(inputs.price) || ""}
                       onChange={handleChange}
                       required
                     ></input>
